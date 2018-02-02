@@ -1,0 +1,15 @@
+{
+  "name": "promiseland",
+  "version": "1.0.0",
+  "description": "",
+  "main": "asyncAwait.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Mark Wilkins <contactme@markwilkins.co> (https://www.markwilkins.co)",
+  "license": "ISC",
+  "dependencies": {
+    "request": "^2.83.0"
+  }
+}
