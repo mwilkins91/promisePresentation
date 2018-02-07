@@ -1,3 +1,38 @@
+/**
+ *
+ *
+ *            Callbacks Example
+ *
+ *
+ *
+ */
+
+// Define a function with a parameter
+function getMyName(callback) {
+	const myName = 'Mark';
+	if (typeof callback === 'function') {
+		//make sure that the user passed in a function
+		callback(myName); //call the function passed as an argument
+	} else {
+		//If its not a function, we throw an informative error
+		throw new Error("Hey, that isn't a function!"); // this is how you create custom errors, they should be informative!
+	}
+}
+
+//call our function, and pass in a callback!
+getMyName(function(name) {
+	console.log(name);
+});
+
+/**
+ *
+ *
+ *       Promise Example
+ *
+ *
+ *
+ */
+
 var myPromise = new Promise(function(resolve, reject) {
 	// do a thing here...
 
@@ -9,6 +44,15 @@ var myPromise = new Promise(function(resolve, reject) {
 		reject(uhOh);
 	}
 });
+
+/**
+ *
+ *
+ *     Literal vs. Constructor Example
+ *
+ *
+ *
+ */
 
 // you're probably used to creating things like this:
 var aString = 'Some text in quotes here.';
@@ -39,6 +83,15 @@ var anotherBoolean = new Boolean(true);
 
 var anotherRegularExpression = new RegExp('regex is cool', 'gi');
 
+/**
+ *
+ *
+ *
+ *     Various Constructors
+ *
+ *
+ */
+
 //Some other constructors you may or may not be familiar with:
 
 Symbol;
@@ -64,6 +117,15 @@ AsyncFunction;
 NodeList;
 HTMLCollection;
 
+/**
+ *
+ *
+ *
+ *   Playing with prototypes
+ *
+ *
+ */
+
 //try this !
 
 // create a string
@@ -87,6 +149,15 @@ String.prototype.toLowerCase = function() {
 
 me.toLowerCase(); // ???
 
+/**
+ *
+ *
+ *
+ *  Constructor Methods
+ *
+ *
+ */
+
 //try this !
 
 const myObj = {
@@ -104,6 +175,15 @@ myObj.name = 'Alex'; // ???
 myObj.someNewProperty = 'yay!'; // ???
 console.log(myObj); // ?!
 
+/**
+ *
+ *
+ *  How a Promise works Resolve
+ *
+ *
+ *
+ */
+
 // Try it!
 const bomb = new Promise(function(yes, no) {
 	setTimeout(function() {
@@ -115,6 +195,15 @@ console.log(bomb); // ???
 
 //wait around for 30seconds...
 console.log(bomb); // ?!
+
+/**
+ *
+ *
+ *  How a Promise works (Rejection)
+ *
+ *
+ *
+ */
 
 // Try it!
 
@@ -129,6 +218,42 @@ console.log(bomb); // ???
 //wait around for 30seconds...
 console.log(bomb); // ?!
 
+/**
+ *
+ *
+ *   How a Promise works "then" and "catch" (Resolve)
+ *
+ *
+ *
+ */
+
+// Try it!
+
+const bomb = new Promise(function(yes, no) {
+	setTimeout(function() {
+		yes('Bomb Malfunction!');
+	}, 10000); //10 seconds
+});
+
+bomb
+	.then(function(promiseResult) {
+		console.log('oh no, the bomb exploded!');
+		console.log('here is the result of the promise: ' + promiseResult); // ???
+	})
+	.catch(function(error) {
+		console.log('uh oh, we are inside our .catch. something went wrong.');
+		console.log('Here is the error: ' + error);
+	});
+
+/**
+ *
+ *
+ *   How a Promise works "then" and "catch" (Reject)
+ *
+ *
+ *
+ */
+
 // Try it!
 
 const bomb = new Promise(function(yes, no) {
@@ -147,23 +272,14 @@ bomb
 		console.log('Here is the error: ' + error);
 	});
 
-// Try it!
-
-const bomb = new Promise(function(yes, no) {
-	setTimeout(function() {
-		no('Bomb Malfunction!');
-	}, 10000); //10 seconds
-});
-
-bomb
-	.then(function(promiseResult) {
-		console.log('oh no, the bomb exploded!');
-		console.log('here is the result of the promise: ' + promiseResult); // ???
-	})
-	.catch(function(error) {
-		console.log('uh oh, we are inside our .catch. something went wrong.');
-		console.log('Here is the error: ' + error);
-	});
+/**
+ *
+ *
+ *   Async Functions (What even are they?!)
+ *
+ *
+ *
+ */
 
 //try it (in node!)
 
@@ -185,6 +301,15 @@ sayMyName().then(function(result) {
 
 //so much easier to write!
 
+/**
+ *
+ *
+ *   Async Functions and Errors #1
+ *
+ *
+ *
+ */
+
 //How to handle Errors method #1:
 async function uhOhAnError() {
 	const err = new Error('Uh oh, everything broke!');
@@ -205,6 +330,15 @@ uhOhAnError()
 		console.log('');
 		console.log('now everything continues as normal :)');
 	});
+
+/**
+ *
+ *
+ *   Async Functions and Errors #2
+ *
+ *
+ *
+ */
 
 //How to handle Errors method #2:
 async function uhOhAnError() {
