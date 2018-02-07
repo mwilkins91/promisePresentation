@@ -1,6 +1,51 @@
 /**
  *
  *
+ *     Literal vs. Constructor Example
+ *
+ *
+ *
+ */
+//
+//
+// Literals
+//
+//
+// you're probably used to creating things like this:
+var aString = 'Some text in quotes here.';
+
+var aNumber = 123456;
+
+var anObject = {
+	thisIs: 'an Object'
+};
+
+var anArray = ['this', 'one', 'is', 'an', 'array'];
+
+var aBOOlean = true;
+
+var aRegularExpression = /regex is cool/gi;
+//
+//
+// Constructors
+//
+//
+//But you should also know that things can be created like this:
+var anotherString = String('Here is a string');
+
+var anotherNumber = Number(123456);
+
+var anotherObject = new Object();
+anotherObject.thisIsAnother = 'object.';
+å;
+var anotherArray = new Array('this', 'is', 'also', 'an', 'array');
+
+var anotherBoolean = new Boolean(true);
+
+var anotherRegularExpression = new RegExp('regex is cool', 'gi');
+/**
+ *
+ *
  *            Callbacks Example
  *
  *
@@ -44,44 +89,6 @@ var myPromise = new Promise(function(resolve, reject) {
 		reject(uhOh);
 	}
 });
-
-/**
- *
- *
- *     Literal vs. Constructor Example
- *
- *
- *
- */
-
-// you're probably used to creating things like this:
-var aString = 'Some text in quotes here.';
-
-var aNumber = 123456;
-
-var anObject = {
-	thisIs: 'an Object'
-};
-
-var anArray = ['this', 'one', 'is', 'an', 'array'];
-
-var aBOOlean = true;
-
-var aRegularExpression = /regex is cool/gi;
-
-//But you should also know that things can be created like this:
-var anotherString = String('Here is a string');
-
-var anotherNumber = Number(123456);
-
-var anotherObject = new Object();
-anotherObject.thisIsAnother = 'object.';
-
-var anotherArray = new Array('this', 'is', 'also', 'an', 'array');
-
-var anotherBoolean = new Boolean(true);
-
-var anotherRegularExpression = new RegExp('regex is cool', 'gi');
 
 /**
  *
